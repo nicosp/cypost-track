@@ -18,7 +18,7 @@ def key(n):
 def convertStatus(s):
   if 'date_time' in s:
       s['date_time'] = parse(s['date_time'], dayfirst=True).isoformat()
-  return {k: v for k, v in s.items() if v != ''}
+  return {k: v for k, v in s.items() if v not in ['','-']}
 
 # get website content
 req = urllib.request.Request(url=target)
